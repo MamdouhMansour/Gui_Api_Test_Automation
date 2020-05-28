@@ -22,6 +22,7 @@
 - Test data for google search task externalized from "/Gui_Api_Automation_Task/src/test/resources/TestDataFiles/GoogleTestData.properties".
 - Test data for herokuapp task externalized from "/Gui_Api_Automation_Task/src/test/resources/TestDataFiles/HerokuappTestData.properties".
 - Properties file of herokuapp includes the absolute path for the image file to upload, after cloning the projec to your local maching change the path in "HerokuappTestData.properties" by change the value of "File_Path" to your file absolute path.
+- Data can be externalized using ExcelFileManager.
 
 #### *Running Tests*
 
