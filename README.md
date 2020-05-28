@@ -26,6 +26,9 @@
 #### *Running Tests*
 
 - Tests can be run within the test class, sampleTestSuite.xml, or via terminal "mvn test".
+- Tests can be scaled using docker-zalenium, by installing Docker-Desktop then open the terminal in your IDE and run the commands wrote in "docker-compose_zalenium.yml" attached with the project to build your images, in "execution.properties" you need to change the execution address as following--> executionAddress=localhost:4444.
+- In sampleTestSuite.xml within test tags you need to add the following--> <test thread-count="2" name="GUI Test" parallel="classes">, to manage the thread tests need and make execution parallel.
+- As advantage of Zalenium no need to reconfigure the images created as Zalenium automatically creates images if needed.  
 
 #### *Reporting*
 
