@@ -7,11 +7,13 @@ package tests.gui.task;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.shaft.gui.browser.BrowserActions;
 import com.shaft.gui.browser.BrowserFactory;
+import com.shaft.tools.io.ExcelFileManager;
 import com.shaft.validation.Assertions;
 import com.shaft.validation.Assertions.AssertionComparisonType;
 import com.shaft.validation.Assertions.AssertionType;
@@ -33,8 +35,8 @@ public class TestHerokuapp extends GetTestData {
     private FileUpload file;
     private DynamicLoading dynamicLoadingPage;
     private DynamicLoadingExample2 example_2_Page;
-
-    private String testDataFileName = "HerokuappTestData.properties";
+   
+    private ExcelFileManager testData;
 
     /**
      * @param "File_Path"      absolute file path
@@ -48,9 +50,9 @@ public class TestHerokuapp extends GetTestData {
 	    + "then I can see that the file chose correclty and page reloads and shows that file uploaded successfully with the correct file name")
     public void testFileUpload() {
 	home.clickOnFileUpload();
-	file.chooseFileToUpload(getTestData(testDataFileName, "File_Path"));
+	file.chooseFileToUpload(testData.getCellData("File_To_Upload_Path", "Data1"));
 	file.clickOnUploadButton();
-	Assertions.assertEquals(getTestData(testDataFileName, "File_Extension"), file.getUploadedFileText(),
+	Assertions.assertEquals(testData.getCellData("File_Extension", "Data1"), file.getUploadedFileText(),
 		AssertionComparisonType.CONTAINS, AssertionType.POSITIVE);
     }
 
@@ -68,10 +70,17 @@ public class TestHerokuapp extends GetTestData {
 	home.clickOnDynamicLoading();
 	dynamicLoadingPage.clickOnExample2();
 	example_2_Page.clickOnStartButton();
-	Assertions.assertEquals(getTestData(testDataFileName, "Hello_World_Text"),
+	Assertions.assertEquals(testData.getCellData("Hello_World_Text", "Data1"),
 		example_2_Page.getSuccessLoadingText(), AssertionComparisonType.CONTAINS, AssertionType.POSITIVE);
     }
 
+    /**
+     * @param testData	is ExcelFileManager object to fetch test data from excel file.
+     */
+    @BeforeClass
+    public void beforeClass() {
+	testData = new ExcelFileManager(System.getProperty("testDataFolderPath") + "TestData.xlsx");
+    }
     // Before Method to be executed before test cases
     @BeforeMethod
     public void beforeMethod() {
@@ -80,7 +89,7 @@ public class TestHerokuapp extends GetTestData {
 	file = new FileUpload(browser);
 	dynamicLoadingPage = new DynamicLoading(browser);
 	example_2_Page = new DynamicLoadingExample2(browser);
-	BrowserActions.navigateToURL(browser, getTestData(testDataFileName, "URL"));
+	BrowserActions.navigateToURL(browser, testData.getCellData("URL_Herokuapp", "Data1"));
     }
 
     // Tear down
