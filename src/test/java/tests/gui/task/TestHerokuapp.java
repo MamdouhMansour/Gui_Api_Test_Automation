@@ -28,7 +28,7 @@ import objectModels.gui.herokuapp.FileUpload;
 import objectModels.gui.herokuapp.HerokuappHomePage;
 import test.data.GetTestData;
 
-public class TestHerokuapp extends GetTestData {
+public class TestHerokuapp{
 
     private WebDriver browser;
     private HerokuappHomePage home;
