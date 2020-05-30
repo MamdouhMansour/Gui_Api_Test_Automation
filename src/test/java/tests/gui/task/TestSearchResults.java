@@ -25,7 +25,7 @@ import objectModels.gui.google.GoogleHome;
 import objectModels.gui.google.SearchResultsPage;
 import test.data.GetTestData;
 
-public class TestSearchResults extends GetTestData {
+public class TestSearchResults{
 
     private WebDriver browser;
     private GoogleHome homePage;
