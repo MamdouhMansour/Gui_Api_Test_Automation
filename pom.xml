@@ -2,13 +2,10 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>io.github.mohabmohie</groupId>
-	<artifactId>using_SHAFT_ENGINE</artifactId>
+	<groupId>gui.api.testAutomation</groupId>
+	<artifactId>gui_api_Test_Automation</artifactId>
 	<version>4.1.20200417</version>
-	<name>Using SHAFT_ENGINE</name>
-	<description>This is a sample project to showcase how to get started using SHAFT_Engine, and how to use some of its
-        rich features, while applying the best practices for Test Automation project design.
-    </description>
+	<name>gui_api_Test_Automation</name>
 	<properties>
 		<!-- Make sure you point to the latest in-house version: https://bintray.com/mohabmohie/SHAFT/SHAFT_Engine -->
 		<shaft_engine.version>4.1.20200417</shaft_engine.version>
