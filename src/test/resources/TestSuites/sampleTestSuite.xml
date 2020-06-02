@@ -9,10 +9,10 @@
 			<class name="tests.api.task.CatFact" />
 		</classes>
 	</test>
-	<!--  test name="GUI Test">
+	<test name="GUI Test">
 		<classes>
 			<class name="tests.gui.task.TestSearchResults" />
 			<class name="tests.gui.task.TestHerokuapp" />
 		</classes>
-	</test-->
+	</test>
 </suite>
