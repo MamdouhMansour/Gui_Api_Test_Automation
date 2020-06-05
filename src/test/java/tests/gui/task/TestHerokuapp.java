@@ -27,9 +27,9 @@ import objectModels.gui.herokuapp.DynamicLoadingExample2;
 import objectModels.gui.herokuapp.FileUpload;
 import objectModels.gui.herokuapp.HerokuappHomePage;
 
-public class TestHerokuapp{
+public class TestHerokuapp {
 
-    private WebDriver browser;
+    private static ThreadLocal<WebDriver>  browser = new ThreadLocal<WebDriver>();
     private HerokuappHomePage home;
     private FileUpload file;
     private DynamicLoading dynamicLoadingPage;
@@ -83,17 +83,17 @@ public class TestHerokuapp{
     // Before Method to be executed before test cases
     @BeforeMethod
     public void beforeMethod() {
-	browser = BrowserFactory.getBrowser();
-	home = new HerokuappHomePage(browser);
-	file = new FileUpload(browser);
-	dynamicLoadingPage = new DynamicLoading(browser);
-	example_2_Page = new DynamicLoadingExample2(browser);
-	BrowserActions.navigateToURL(browser, testData.getCellData("URL_Herokuapp", "Data1"));
+	browser.set(BrowserFactory.getBrowser());
+	home = new HerokuappHomePage(browser.get());
+	file = new FileUpload(browser.get());
+	dynamicLoadingPage = new DynamicLoading(browser.get());
+	example_2_Page = new DynamicLoadingExample2(browser.get());
+	BrowserActions.navigateToURL(browser.get(), testData.getCellData("URL_Herokuapp", "Data1"));
     }
 
     // Tear down
     @AfterMethod
     public void afterMethod() {
-	BrowserActions.closeCurrentWindow(browser);
+	BrowserActions.closeCurrentWindow(browser.get());
     }
 }

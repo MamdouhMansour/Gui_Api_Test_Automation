@@ -26,7 +26,7 @@ import objectModels.gui.google.SearchResultsPage;
 
 public class TestSearchResults{
 
-    private WebDriver browser;
+    private ThreadLocal<WebDriver> browser = new ThreadLocal<WebDriver>();
     private GoogleHome homePage;
     private SearchResultsPage resultsPage;
 
@@ -59,16 +59,16 @@ public class TestSearchResults{
     
     @BeforeMethod
     public void beforeMethod() {
-	browser = BrowserFactory.getBrowser();
-	homePage = new GoogleHome(browser);
-	resultsPage = new SearchResultsPage(browser);
+	browser.set(BrowserFactory.getBrowser());
+	homePage = new GoogleHome(browser.get());
+	resultsPage = new SearchResultsPage(browser.get());
 
-	BrowserActions.navigateToURL(browser, testData.getCellData("Google_URL", "Data1"),
+	BrowserActions.navigateToURL(browser.get(), testData.getCellData("Google_URL", "Data1"),
 		testData.getCellData("Google_URL", "Data2"));
     }
 
     @AfterMethod
     public void afterMethod() {
-	BrowserActions.closeCurrentWindow(browser);
+	BrowserActions.closeCurrentWindow(browser.get());
     }
 }
