@@ -98,6 +98,9 @@
 						<!-- <threadCount>10</threadCount> -->
 						<!-- <threadCount>1</threadCount> -->
 						<!-- <perCoreThreadCount>false</perCoreThreadCount> -->
+						<suiteXmlFiles>
+							<suiteXmlFile>src/test/resources/TestSuites/sampleTestSuite.xml</suiteXmlFile>
+						</suiteXmlFiles>
 						<failIfNoSpecifiedTests>false</failIfNoSpecifiedTests>
 						<failIfNoTests>false</failIfNoTests>
 						<systemPropertyVariables>
