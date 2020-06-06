@@ -11,8 +11,12 @@
 	</test>
 	<test name="GUI Test">
 		<classes>
-			<class name="tests.gui.task.TestSearchResults" />
 			<class name="tests.gui.task.TestHerokuapp" />
+		</classes>
+	</test>
+	<test name="GUI Test_1">
+		<classes>
+			<class name="tests.gui.task.TestSearchResults" />
 		</classes>
 	</test>
 </suite>

@@ -29,7 +29,7 @@ import objectModels.gui.herokuapp.HerokuappHomePage;
 
 public class TestHerokuapp {
 
-    private static ThreadLocal<WebDriver>  browser = new ThreadLocal<WebDriver>();
+    private ThreadLocal<WebDriver>  browser = new ThreadLocal<WebDriver>();
     private HerokuappHomePage home;
     private FileUpload file;
     private DynamicLoading dynamicLoadingPage;
@@ -81,7 +81,7 @@ public class TestHerokuapp {
 	testData = new ExcelFileManager(System.getProperty("testDataFolderPath") + "TestData.xlsx");
     }
     // Before Method to be executed before test cases
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void beforeMethod() {
 	browser.set(BrowserFactory.getBrowser());
 	home = new HerokuappHomePage(browser.get());
