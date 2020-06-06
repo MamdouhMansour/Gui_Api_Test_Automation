@@ -92,8 +92,8 @@ public class TestHerokuapp {
     }
 
     // Tear down
-    @AfterMethod
-    public void afterMethod() {
-	BrowserActions.closeCurrentWindow(browser.get());
-    }
+    //@AfterMethod
+    //public void afterMethod() {
+	//BrowserActions.closeCurrentWindow(browser.get());
+    //}
 }
